@@ -18,7 +18,7 @@ namespace Stok_Takip_Ot
             InitializeComponent();
         }
         //Sql'i bağlama
-        SqlConnection baglanti = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Stok_Takip;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=StokDatabase;Integrated Security=True");
 
         private void label3_Click(object sender, EventArgs e)
         {

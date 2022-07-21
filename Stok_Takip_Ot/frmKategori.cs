@@ -18,8 +18,27 @@ namespace Stok_Takip_Ot
             InitializeComponent();
         }
 
-        SqlConnection baglanti = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Stok_Takip;Integrated " +
-        "Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlConnection baglanti = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=StokDatabase;Integrated Security=True;Connect Timeout=30;" +
+            "Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
+        bool durum;
+
+        private void Kategorikontrol()
+        {
+            durum = true;
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("select * from kategoribilgileri", baglanti);
+            SqlDataReader read =komut.ExecuteReader();
+            while (read.Read())
+            {
+                if (textBox1.Text == read["kategori"].ToString() || textBox1.Text=="")
+                {
+                    durum=false;
+                }
+
+            }
+            baglanti.Close();
+        }
         private void frmKategori_Load(object sender, EventArgs e)
         {
 
@@ -27,15 +46,21 @@ namespace Stok_Takip_Ot
 
         private void button1_Click(object sender, EventArgs e)
         {
-            baglanti.Open();
-            SqlCommand komut = new SqlCommand("insert into kategoribilgileri(kategori) values('"+textBox1.Text+"') ",baglanti);
-            komut.ExecuteNonQuery();    
-            baglanti.Close();
+            Kategorikontrol();
+            if (durum == true)
+            {
+                baglanti.Open();
+                SqlCommand komut = new SqlCommand("insert into kategoribilgileri(kategori) values('" + textBox1.Text + "') ", baglanti);
+                komut.ExecuteNonQuery();
+                baglanti.Close();
+                MessageBox.Show("Kategori eklendi");
+            }
+            else
+            {
+                MessageBox.Show("Böyle bir kategori var.");
 
+            }
             textBox1.Text = "";//Textboxu temizleme
-            MessageBox.Show("Kategori eklendi");
-
-
 
         }
     }

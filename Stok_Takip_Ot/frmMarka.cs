@@ -18,20 +18,47 @@ namespace Stok_Takip_Ot
             InitializeComponent();
         }
 
-        SqlConnection baglanti = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Stok_Takip;Integrated " +
-        "Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlConnection baglanti = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=StokDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;" +
+            "TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
+        bool durum;
+
+        private void Markakontrol()
+        {
+            durum = true;
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("select * from markabilgileri", baglanti);
+            SqlDataReader read = komut.ExecuteReader();
+            while (read.Read())
+            {
+                if (comboBox1.Text == read["kategori"].ToString() &&textBox1.Text == read["marka"].ToString() || comboBox1.Text == ""|| textBox1.Text=="")
+                {
+                    durum = false;
+                }
+
+            }
+            baglanti.Close();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
+            Markakontrol();
+            if (durum== true)
+            {
+            
             baglanti.Open();
             SqlCommand komut = new SqlCommand("insert into markabilgileri(kategori,marka) values('" + comboBox1.Text + "','" + textBox1.Text + "') ", baglanti);
             komut.ExecuteNonQuery();
             baglanti.Close();
 
+         
+            MessageBox.Show("Marka eklendi");
+            }
+            else
+            {
+                MessageBox.Show("Böyle bir kategori ve marka var.");
+            }
             textBox1.Text = "";//Textboxu temizleme
             comboBox1.Text = "";
-            MessageBox.Show("Marka eklendi");
-
         }
 
         private void frmMarka_Load(object sender, EventArgs e)

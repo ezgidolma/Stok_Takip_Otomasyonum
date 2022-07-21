@@ -18,7 +18,7 @@ namespace Stok_Takip_Ot
             InitializeComponent();
         }
 
-        SqlConnection baglanti = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Stok_Takip;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=StokDatabase;Integrated Security=True");
 
         DataSet daset = new DataSet(); //Kayıtları burada geçici olarak tutmak için
         private void frmMüşteriListele_Load(object sender, EventArgs e)

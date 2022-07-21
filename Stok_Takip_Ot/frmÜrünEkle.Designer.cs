@@ -60,6 +60,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblMiktari = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +99,7 @@
             this.btnYeniÜrünEkle.TabIndex = 3;
             this.btnYeniÜrünEkle.Text = "Ekle";
             this.btnYeniÜrünEkle.UseVisualStyleBackColor = true;
+            this.btnYeniÜrünEkle.Click += new System.EventHandler(this.btnYeniÜrünEkle_Click);
             // 
             // comboMarka
             // 
@@ -217,6 +220,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.lblMiktari);
             this.groupBox2.Controls.Add(this.btnVarOlanÜrünEkle);
             this.groupBox2.Controls.Add(this.BarkodNotxt);
             this.groupBox2.Controls.Add(this.Kategoritxt);
@@ -248,6 +253,7 @@
             this.btnVarOlanÜrünEkle.TabIndex = 2;
             this.btnVarOlanÜrünEkle.Text = "Ekle";
             this.btnVarOlanÜrünEkle.UseVisualStyleBackColor = true;
+            this.btnVarOlanÜrünEkle.Click += new System.EventHandler(this.btnVarOlanÜrünEkle_Click);
             // 
             // BarkodNotxt
             // 
@@ -255,6 +261,7 @@
             this.BarkodNotxt.Name = "BarkodNotxt";
             this.BarkodNotxt.Size = new System.Drawing.Size(100, 22);
             this.BarkodNotxt.TabIndex = 13;
+            this.BarkodNotxt.TextChanged += new System.EventHandler(this.BarkodNotxt_TextChanged);
             // 
             // Kategoritxt
             // 
@@ -362,6 +369,22 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Barkod No";
             // 
+            // lblMiktari
+            // 
+            this.lblMiktari.AutoSize = true;
+            this.lblMiktari.Location = new System.Drawing.Point(53, 313);
+            this.lblMiktari.Name = "lblMiktari";
+            this.lblMiktari.Size = new System.Drawing.Size(0, 16);
+            this.lblMiktari.TabIndex = 14;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(59, 319);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(0, 16);
+            this.label15.TabIndex = 15;
+            // 
             // frmÜrünEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -416,5 +439,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnVarOlanÜrünEkle;
         private System.Windows.Forms.Button btnYeniÜrünEkle;
+        private System.Windows.Forms.Label lblMiktari;
+        private System.Windows.Forms.Label label15;
     }
 }
