@@ -53,13 +53,13 @@
             this.btnSatışİptal = new System.Windows.Forms.Button();
             this.txtGenelToplam = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnSatışlarıListeleme = new System.Windows.Forms.Button();
             this.btnÜrünListeleme = new System.Windows.Forms.Button();
             this.btnÜrünEkleme = new System.Windows.Forms.Button();
             this.btnMüşteriListeleme = new System.Windows.Forms.Button();
             this.btnMüşteriEkleme = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -74,7 +74,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(520, 278);
+            this.dataGridView1.Size = new System.Drawing.Size(604, 278);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -144,6 +144,7 @@
             this.txtTC.Name = "txtTC";
             this.txtTC.Size = new System.Drawing.Size(100, 22);
             this.txtTC.TabIndex = 0;
+            this.txtTC.TextChanged += new System.EventHandler(this.txtTC_TextChanged);
             // 
             // groupBox2
             // 
@@ -228,6 +229,7 @@
             this.txtSatışFiyatı.Name = "txtSatışFiyatı";
             this.txtSatışFiyatı.Size = new System.Drawing.Size(100, 22);
             this.txtSatışFiyatı.TabIndex = 3;
+            this.txtSatışFiyatı.TextChanged += new System.EventHandler(this.txtSatışFiyatı_TextChanged);
             // 
             // txtMiktarı
             // 
@@ -235,6 +237,9 @@
             this.txtMiktarı.Name = "txtMiktarı";
             this.txtMiktarı.Size = new System.Drawing.Size(100, 22);
             this.txtMiktarı.TabIndex = 2;
+            this.txtMiktarı.Text = "1";
+            this.txtMiktarı.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMiktarı.TextChanged += new System.EventHandler(this.txtMiktarı_TextChanged);
             // 
             // txtÜrünAdı
             // 
@@ -249,6 +254,7 @@
             this.txtBarkodNo.Name = "txtBarkodNo";
             this.txtBarkodNo.Size = new System.Drawing.Size(100, 22);
             this.txtBarkodNo.TabIndex = 0;
+            this.txtBarkodNo.TextChanged += new System.EventHandler(this.txtBarkodNo_TextChanged);
             // 
             // btnEkle
             // 
@@ -259,6 +265,7 @@
             this.btnEkle.TabIndex = 3;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // btnSatışYap
             // 
@@ -273,19 +280,20 @@
             // btnSil
             // 
             this.btnSil.ForeColor = System.Drawing.Color.Black;
-            this.btnSil.Location = new System.Drawing.Point(780, 163);
+            this.btnSil.Location = new System.Drawing.Point(854, 170);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(75, 41);
+            this.btnSil.Size = new System.Drawing.Size(85, 41);
             this.btnSil.TabIndex = 5;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnSatışİptal
             // 
             this.btnSatışİptal.ForeColor = System.Drawing.Color.Black;
-            this.btnSatışİptal.Location = new System.Drawing.Point(780, 225);
+            this.btnSatışİptal.Location = new System.Drawing.Point(854, 232);
             this.btnSatışİptal.Name = "btnSatışİptal";
-            this.btnSatışİptal.Size = new System.Drawing.Size(75, 40);
+            this.btnSatışİptal.Size = new System.Drawing.Size(85, 40);
             this.btnSatışİptal.TabIndex = 6;
             this.btnSatışİptal.Text = "Satış İptal";
             this.btnSatışİptal.UseVisualStyleBackColor = true;
@@ -314,6 +322,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1036, 113);
             this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button2
+            // 
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(755, 44);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 37);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Kategori";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(836, 44);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 37);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Marka";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSatışlarıListeleme
             // 
@@ -335,6 +366,7 @@
             this.btnÜrünListeleme.TabIndex = 3;
             this.btnÜrünListeleme.Text = "Ürün Listeleme";
             this.btnÜrünListeleme.UseVisualStyleBackColor = true;
+            this.btnÜrünListeleme.Click += new System.EventHandler(this.btnÜrünListeleme_Click);
             // 
             // btnÜrünEkleme
             // 
@@ -369,34 +401,12 @@
             this.btnMüşteriEkleme.UseVisualStyleBackColor = true;
             this.btnMüşteriEkleme.Click += new System.EventHandler(this.btnMüşteriEkleme_Click);
             // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(836, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 37);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Marka";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(755, 44);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 37);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Kategori";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // frmSatis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(939, 614);
+            this.ClientSize = new System.Drawing.Size(964, 614);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtGenelToplam);
             this.Controls.Add(this.btnSatışİptal);
@@ -406,7 +416,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
-            this.ForeColor = System.Drawing.Color.Coral;
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "frmSatis";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
