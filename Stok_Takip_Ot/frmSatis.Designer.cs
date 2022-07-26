@@ -51,7 +51,6 @@
             this.btnSatışYap = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnSatışİptal = new System.Windows.Forms.Button();
-            this.txtGenelToplam = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -60,6 +59,7 @@
             this.btnÜrünEkleme = new System.Windows.Forms.Button();
             this.btnMüşteriListeleme = new System.Windows.Forms.Button();
             this.btnMüşteriEkleme = new System.Windows.Forms.Button();
+            this.lblgeneltoplam = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -299,16 +299,6 @@
             this.btnSatışİptal.UseVisualStyleBackColor = true;
             this.btnSatışİptal.Click += new System.EventHandler(this.button4_Click);
             // 
-            // txtGenelToplam
-            // 
-            this.txtGenelToplam.AutoSize = true;
-            this.txtGenelToplam.ForeColor = System.Drawing.Color.Black;
-            this.txtGenelToplam.Location = new System.Drawing.Point(481, 486);
-            this.txtGenelToplam.Name = "txtGenelToplam";
-            this.txtGenelToplam.Size = new System.Drawing.Size(96, 16);
-            this.txtGenelToplam.TabIndex = 7;
-            this.txtGenelToplam.Text = "Genel Toplam ";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.button2);
@@ -401,14 +391,23 @@
             this.btnMüşteriEkleme.UseVisualStyleBackColor = true;
             this.btnMüşteriEkleme.Click += new System.EventHandler(this.btnMüşteriEkleme_Click);
             // 
+            // lblgeneltoplam
+            // 
+            this.lblgeneltoplam.AutoSize = true;
+            this.lblgeneltoplam.Location = new System.Drawing.Point(466, 479);
+            this.lblgeneltoplam.Name = "lblgeneltoplam";
+            this.lblgeneltoplam.Size = new System.Drawing.Size(93, 16);
+            this.lblgeneltoplam.TabIndex = 9;
+            this.lblgeneltoplam.Text = "Genel Toplam";
+            // 
             // frmSatis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(964, 614);
+            this.ClientSize = new System.Drawing.Size(965, 572);
+            this.Controls.Add(this.lblgeneltoplam);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtGenelToplam);
             this.Controls.Add(this.btnSatışİptal);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.btnSatışYap);
@@ -457,7 +456,6 @@
         private System.Windows.Forms.Button btnSatışYap;
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Button btnSatışİptal;
-        private System.Windows.Forms.Label txtGenelToplam;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSatışlarıListeleme;
         private System.Windows.Forms.Button btnÜrünListeleme;
@@ -466,6 +464,7 @@
         private System.Windows.Forms.Button btnMüşteriEkleme;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblgeneltoplam;
     }
 }
 

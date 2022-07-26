@@ -51,9 +51,11 @@ namespace Stok_Takip_Ot
             SqlCommand komut = new SqlCommand("delete from sepet ",baglanti);
             komut.ExecuteNonQuery();
             baglanti.Close();
+          
             MessageBox.Show("Ürünler sepetten çıkarıldı.");
             daset.Tables["sepet"].Clear();
             SepetListele();
+            Hesapla();
         }
 
         private void btnMüşteriEkleme_Click(object sender, EventArgs e)
@@ -78,10 +80,26 @@ namespace Stok_Takip_Ot
             frmÜrünEkle ekle = new frmÜrünEkle();
             ekle.ShowDialog();
         }
+        private void Hesapla()
+        {
+            try
+            {
+                baglanti.Open();
+                SqlCommand komut = new SqlCommand("select sum(toplamfiyati)  from sepet",baglanti);
+                lblgeneltoplam.Text = komut.ExecuteScalar() + "TL";
+                baglanti.Close();
 
+            }
+            catch (Exception)
+            {
+
+                ;
+            }
+        }
         private void btnSatışlarıListeleme_Click(object sender, EventArgs e)
         {
-
+            frmSatisListele listele = new frmSatisListele();
+            listele.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -208,6 +226,7 @@ namespace Stok_Takip_Ot
                 komut.Parameters.AddWithValue("@tarih", DateTime.Now.ToString());
                 komut.ExecuteNonQuery();
                 baglanti.Close();
+                
             }
             else
             {
@@ -218,6 +237,7 @@ namespace Stok_Takip_Ot
                 komut3.ExecuteNonQuery();
                 baglanti.Close();
             }
+            Hesapla();
            
             txtMiktarı.Text = "1";
             daset.Tables["sepet"].Clear();
@@ -261,9 +281,16 @@ namespace Stok_Takip_Ot
             SqlCommand komut = new SqlCommand("delete from sepet where barkodno='" + dataGridView1.CurrentRow.Cells["barkodno"].Value.ToString() +"'",baglanti);
             komut.ExecuteNonQuery();
             baglanti.Close();
+   
             MessageBox.Show("Ürün sepetten çıkarıldı.");
             daset.Tables["sepet"].Clear();
             SepetListele();
+            Hesapla();
+        }
+
+        private void lblgeneltoplam_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
