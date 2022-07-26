@@ -292,5 +292,37 @@ namespace Stok_Takip_Ot
         {
 
         }
+
+        private void btnSatışYap_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)//kaç tane kayıt varsa
+            {
+                baglanti.Open();
+                SqlCommand komut = new SqlCommand("insert into satis (tc,adsoyad,telefon,barkodno,urunadi,toplamfiyati,satisfiyati,tarih,miktari) values(@tc,@adsoyad,@telefon,@barkodno,@urunadi,@toplamfiyati,@satisfiyati,@tarih,@miktari) ", baglanti);
+                komut.Parameters.AddWithValue("@tc", txtTC.Text);
+                komut.Parameters.AddWithValue("@adsoyad", txtAdSoyad.Text);
+                komut.Parameters.AddWithValue("@barkodno", dataGridView1.Rows[i].Cells["barkodno"].Value.ToString());//kaç tane kayıt varsa onu barkodno sutününe aktar
+                komut.Parameters.AddWithValue("@telefon", txtTelefon.Text);
+                komut.Parameters.AddWithValue("@urunadi", dataGridView1.Rows[i].Cells["urunadi"].Value.ToString());
+                komut.Parameters.AddWithValue("@miktari", int.Parse(dataGridView1.Rows[i].Cells["miktari"].Value.ToString()));
+                komut.Parameters.AddWithValue("@toplamfiyati", double.Parse(dataGridView1.Rows[i].Cells["toplamfiyati"].Value.ToString()));
+                komut.Parameters.AddWithValue("@satisfiyati", double.Parse(dataGridView1.Rows[i].Cells["satisfiyati"].Value.ToString()));
+                komut.Parameters.AddWithValue("@tarih", DateTime.Now.ToString());
+                komut.ExecuteNonQuery();
+                baglanti.Close();
+                SqlCommand komut2 = new SqlCommand("update urun set miktari =miktari-'" + int.Parse(dataGridView1.Rows[i].Cells["miktari"].Value.ToString()) + "' where barkodno= '" + dataGridView1.Rows[i].Cells["barkodno"].Value.ToString() + "'", baglanti);
+                komut2.ExecuteNonQuery();
+                baglanti.Close();
+        
+
+            }
+            baglanti.Open();
+            SqlCommand komut3 = new SqlCommand("delete from sepet", baglanti);
+            komut3.ExecuteNonQuery();
+            baglanti.Close();
+            daset.Tables["sepet"].Clear();
+            SepetListele();
+            Hesapla();
+        }
     }
 }

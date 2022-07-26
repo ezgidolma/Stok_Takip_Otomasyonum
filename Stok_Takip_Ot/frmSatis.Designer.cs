@@ -270,12 +270,13 @@
             // btnSatışYap
             // 
             this.btnSatışYap.ForeColor = System.Drawing.Color.Black;
-            this.btnSatışYap.Location = new System.Drawing.Point(655, 466);
+            this.btnSatışYap.Location = new System.Drawing.Point(754, 455);
             this.btnSatışYap.Name = "btnSatışYap";
             this.btnSatışYap.Size = new System.Drawing.Size(93, 43);
             this.btnSatışYap.TabIndex = 4;
             this.btnSatışYap.Text = "Satış Yap";
             this.btnSatışYap.UseVisualStyleBackColor = true;
+            this.btnSatışYap.Click += new System.EventHandler(this.btnSatışYap_Click);
             // 
             // btnSil
             // 
@@ -394,7 +395,7 @@
             // lblgeneltoplam
             // 
             this.lblgeneltoplam.AutoSize = true;
-            this.lblgeneltoplam.Location = new System.Drawing.Point(466, 479);
+            this.lblgeneltoplam.Location = new System.Drawing.Point(517, 482);
             this.lblgeneltoplam.Name = "lblgeneltoplam";
             this.lblgeneltoplam.Size = new System.Drawing.Size(93, 16);
             this.lblgeneltoplam.TabIndex = 9;
@@ -402,6 +403,7 @@
             // 
             // frmSatis
             // 
+            this.AcceptButton = this.btnEkle;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
